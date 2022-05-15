@@ -2,48 +2,57 @@ import { styled } from "../../stitches.config";
 import { grayDark } from "@radix-ui/colors";
 
 export const StyledMain = styled("main", {
+
+    "& h1:not(.section-title)": {
+        fontSize: "2.25rem",
+        fontFamily: "$accentFont"
+    },
+    "& h2": {
+        fontSize: "1.125rem",
+        fontFamily: "$accentFont"
+    },
+    "& p": {
+        fontFamily: "$mainFont",
+    },
+    "& li::before": {
+        content: "-",
+        fontSize: "1rem",
+        margin: "0 0.75em"
+    },
     variants: {
         type: {
             dark: {
-                "& h1:not(.section-title)": {
-                    fontSize: "2.25rem",
+                "& h1:not(.section-title), h2, p > .inferences": {
                     color: "$textDarkColor",
-                    fontFamily: "$accentFont"
                 },
-                "& h2": {
-                    fontSize: "1.125rem",
-                    color: "$textDarkColor",
-                    fontFamily: "$accentFont"
-                },
+                // "& h2": {
+                //     color: "$textDarkColor",
+                // },
                 "& p": {
                     color: "$textAccentDarkColor",
-                    fontFamily: "$mainFont",
 
-                    "&.inferences": {
-                        color: "$textDarkColor"
-                    }
+                    // "&.inferences": {
+                    //     color: "$textDarkColor"
+                    // }
                 },
 
-                "& li": {
-                    "&::before": {
-                        content: "-",
-                        color: "$textAccentDarkColor",
-                        fontSize: "1rem",
-                        margin: "0 0.75em"
-                    },
-                    // "& > span": {
-                    //     color: "$textAccentDarkColor"
-                    // }
+                "& li::before": {
+                    color: "$textAccentDarkColor",
                 }
             },
 
             light: {
-                "& p": {
-                    color: "$textLightColor",
-                    fontFamily: "$mainFont",
+                "& h1:not(.section-title), h2, p > .inferences": {
+                    color: "$textLightColor"
                 },
-                "& span": {
-                    color: "$textAccentDarkColor"
+                "& h2": {
+                    color: "$textLightColor"
+                },
+                "& p": {
+                    color: "$textAccentLightColor",
+                },
+                "& li::before": {
+                    color: "$textAccentLightColor"
                 }
             }
         }
@@ -75,7 +84,7 @@ export const StyledSection = styled("section", {
         // border: "1px solid red",
         // objectFit: "",
 
-        "& > div": {
+        "& > div:first-child": {
             // maxWidth: "750px",
             width: "70%",
             display: "flex",
@@ -94,7 +103,7 @@ export const StyledSection = styled("section", {
         },
     
         "& > div:last-child": {
-            width: 250,
+            minWidth: 250,
             height: 250,
             // marginRight: "3em",
             // minWidth: 300,
@@ -151,14 +160,16 @@ export const StyledSection = styled("section", {
             overflow: "hidden",
 
             "& > div.project": {
-                position: "absolute",
-                transition: "left",
-                minWidth: "100%",
+                position: "absolute",   
+                top: "50%",
+                transform: "translate(0, -50%)",
+                transition: "left 0.5s",
+                // minWidth: "100%",
 
                 "& > div": {
 
                     "& > h1": {
-                        marginBottom: "0.15em",
+                        marginBottom: "0.05em",
     
                         "& > span": {
                             fontSize: "1.25rem"
@@ -168,7 +179,7 @@ export const StyledSection = styled("section", {
                         fontWeight: 400
                     },
                     "& > p": {
-                        marginTop: "0.5em",
+                        marginTop: "1em",
                     }
                 },
             },
@@ -189,12 +200,15 @@ export const StyledSection = styled("section", {
             //     }
             // },
 
-            "& > div:nth-child(2)": {
+            "& > div > div:nth-child(2)": {
                 marginTop: "1em",
 
                 "& > ul > li": {
                     // paddingLeft: "2em",
                     display: "flex",
+                    "& > p": {
+                        display: "inline"
+                    }
                     // "&::before": {
                     //     content: "-",
                     //     color: "white"

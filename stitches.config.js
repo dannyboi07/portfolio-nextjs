@@ -12,10 +12,11 @@ export const { styled } = createStitches({
 
             mainLightColor: "white",
             textLightColor: "black",
+            textAccentLightColor: "darkgray",
             accentLightColor: mauveDark.mauve10,
 
-            titleDarkerColor: grayDark.gray4,
-            titleDarkColor: grayDark.gray6
+            titleDarkerColor: grayDark.gray1,
+            titleDarkColor: grayDark.gray4
         },
         shadows: {
             shadowDarkColor: gray.gray5,
